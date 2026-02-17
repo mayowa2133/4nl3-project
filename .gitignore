@@ -1,0 +1,9 @@
+# Local Python/runtime artifacts
+__pycache__/
+*.pyc
+
+# Local raw dataset downloads (too large for repo)
+data/raw/
+
+# Temporary Excel lock files
+annotation/excel/~$*.xlsx
