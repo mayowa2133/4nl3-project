@@ -109,3 +109,27 @@ python3 scripts/build_excel_annotation_workbooks.py \
 2. No blank labels in assigned rows.
 3. Team reviews disagreement cases and refines guideline text if needed.
 4. Project is ready for agreement computation and report write-up.
+
+## Compute Agreement (Phase 4.1)
+
+Use the completed Excel workbooks to compile all labels and compute nominal
+Krippendorff's Alpha on the overlap subset.
+
+Run:
+
+```bash
+./.venv/bin/python scripts/compute_agreement.py
+```
+
+Outputs:
+
+1. `data/processed/annotations_labeled_long.csv`
+2. `data/processed/annotations_overlap_pairs.csv`
+3. `data/processed/agreement_summary.json`
+
+`agreement_summary.json` contains:
+
+1. `initial_rows`, `reannotation_rows`, `overlap_rows`
+2. `percent_agreement`
+3. `krippendorff_alpha_nominal`
+4. Label distributions and confusion matrix for overlap labels

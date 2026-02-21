@@ -1,0 +1,240 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  urlcolor=blue!70!black,
+  citecolor=blue!60!black
+}
+
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.4em}
+
+\title{Group 13 Report:\\Turn-Level User Intent Annotation (MultiWOZ 2.2)}
+\author{
+  Mayowa Adesanya (\texttt{adesanym}, 400233110) \and
+  Nicholas Zajkeskovic (\texttt{zajkeskn}, 400402381) \and
+  Divij Dhiraaj (\texttt{dhiraajd}, 400360225)
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Group Number and Members}
+\textbf{Group Number:} 13
+\begin{itemize}
+  \item Mayowa Adesanya (\texttt{adesanym}, 400233110)
+  \item Nicholas Zajkeskovic (\texttt{zajkeskn}, 400402381)
+  \item Divij Dhiraaj (\texttt{dhiraajd}, 400360225)
+\end{itemize}
+
+\section{Annotation Instructions}
+\subsection{Task Definition}
+For each instance, annotators read:
+\begin{enumerate}
+  \item \texttt{system\_context} (previous system turn)
+  \item \texttt{user\_utterance} (current user turn)
+\end{enumerate}
+Annotators assign exactly one dominant intent label for the current user turn.
+
+\subsection{Label Set}
+\begin{enumerate}
+  \item \texttt{REQUEST}: ask for information/options or request an action.
+  \item \texttt{INFORM\_CONSTRAINT}: provide preferences/details (price, area, time, people, etc.).
+  \item \texttt{CONFIRM\_ACCEPT}: explicit acceptance/confirmation.
+  \item \texttt{CORRECT\_CLARIFY}: correction or clarification after mismatch.
+  \item \texttt{SOCIAL}: greeting/thanks/closing with no task-directed intent.
+\end{enumerate}
+
+\subsection{Operational Procedure}
+Each annotator used one workbook:
+\begin{itemize}
+  \item \texttt{annotation/excel/adesanym\_annotation.xlsx}
+  \item \texttt{annotation/excel/zajkeskn\_annotation.xlsx}
+  \item \texttt{annotation/excel/dhiraajd\_annotation.xlsx}
+\end{itemize}
+
+Each workbook contains:
+\begin{itemize}
+  \item \texttt{initial} sheet (primary labels)
+  \item \texttt{reannotation} sheet (overlap labels)
+\end{itemize}
+
+Per-row process:
+\begin{enumerate}
+  \item Read context and utterance.
+  \item Apply decision order.
+  \item Choose one label from dropdown.
+  \item Add concise note only when ambiguous.
+  \item Do not edit metadata columns.
+\end{enumerate}
+
+\subsection{Decision Order and Tie-Break Rules}
+\textbf{Decision order:}
+\begin{enumerate}
+  \item \texttt{CORRECT\_CLARIFY}
+  \item \texttt{CONFIRM\_ACCEPT}
+  \item \texttt{REQUEST}
+  \item \texttt{INFORM\_CONSTRAINT}
+  \item \texttt{SOCIAL}
+\end{enumerate}
+
+\textbf{Tie-break policy (mixed intents):}
+\begin{enumerate}
+  \item Correction beats all other intents.
+  \item Explicit acceptance beats request/inform.
+  \item Request beats inform when asking for next system action.
+  \item Inform beats social when task content exists.
+  \item Social only when no task-directed intent remains.
+\end{enumerate}
+
+\section{Dataset Description and Sensitive-Content Disclaimer}
+\subsection{Source and Provenance}
+The dataset was built from MultiWOZ 2.2 dialogues.
+\begin{itemize}
+  \item Dataset GitHub: \url{https://github.com/budzianowski/multiwoz}
+  \item Raw hosted files used in downloader:
+  \url{https://raw.githubusercontent.com/budzianowski/multiwoz/master/data/MultiWOZ_2.2}
+\end{itemize}
+
+\subsection{Annotation Unit}
+Each instance is one pair:
+\begin{itemize}
+  \item previous system utterance (\texttt{system\_context})
+  \item current user utterance (\texttt{user\_utterance})
+\end{itemize}
+
+\subsection{Annotated Data Volume}
+\textbf{Annotated dataset submitted:} \texttt{data/processed/annotations\_labeled\_long.csv}
+\par\medskip
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Component} & \textbf{Count} & \textbf{Notes} \\
+\midrule
+Initial (unique) annotations & 1050 & 350 per annotator \\
+Reannotation overlap entries & 135 & 45 per annotator \\
+Total label entries & 1185 & initial + overlap \\
+Blank labels after completion & 0 & quality check passed \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Sensitive-Content Disclaimer}
+Although primarily benign, the dialogue data may contain rude or impolite phrasing, abrupt tone shifts, and occasional potentially offensive language. The corpus is used strictly for academic annotation and analysis.
+
+\section{Interesting Data Points, Estimates, and Agreement}
+\subsection{Required Annotation Estimates}
+\begin{itemize}
+  \item Total unique instances annotated: 1050
+  \item Total labeling operations including overlap: 1185
+\end{itemize}
+
+Using the agreed 1-hour baseline per annotator for the initial pass:
+\[
+\text{Average time per instance}=\frac{60 \times 60}{350}=10.29\text{ seconds}
+\]
+
+\subsection{Agreement Metric Selection}
+Because overlap was distributed among three annotators (rather than a single fixed annotator pair), we used \textbf{Krippendorff's Alpha (nominal)} on overlap instances.
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Overlap instances & 135 \\
+Percent agreement & 0.7037 \\
+Krippendorff's Alpha (nominal) & 0.5997 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Interpretation: reliability is \textbf{moderate}. The labels are usable for analysis, but disagreement remains meaningful in boundary cases.
+
+\subsection{Three Interesting Data Points}
+\subsubsection*{Example 1: Hostility + task redirection}
+\textbf{Instance:} \texttt{mw22\_PMUL4392.json\_2}\\
+\textbf{User turn:} ``uhm, no. that's your job, weirdo. also, i need a train.''\\
+\textbf{Labels:} Original \texttt{REQUEST}, Reannotation \texttt{CORRECT\_CLARIFY}.\\
+\textbf{Why interesting:} combines rejection/correction with a new request, creating dominant-intent ambiguity.
+
+\subsubsection*{Example 2: ``instead'' ambiguity}
+\textbf{Instance:} \texttt{mw22\_MUL1543.json\_6}\\
+\textbf{User turn:} ``Can you help me find a train going to Stevenage and leaving Thursday instead?''\\
+\textbf{Labels:} Original \texttt{REQUEST}, Reannotation \texttt{CORRECT\_CLARIFY}.\\
+\textbf{Why interesting:} ``instead'' can indicate correction while turn form remains request-like.
+
+\subsubsection*{Example 3: Social preface + new intent}
+\textbf{Instance:} \texttt{mw22\_PMUL0719.json\_12}\\
+\textbf{User turn:} ``Thank you. I also want a train for friday, from broxbourne to cambridge.''\\
+\textbf{Labels:} Original \texttt{INFORM\_CONSTRAINT}, Reannotation \texttt{REQUEST}.\\
+\textbf{Why interesting:} social phrase and actionable intent co-occur in one turn.
+
+\subsection{Disagreement Patterns}
+\textbf{Most frequent disagreement transitions:}
+\begin{itemize}
+  \item \texttt{REQUEST} $\rightarrow$ \texttt{CONFIRM\_ACCEPT} (8)
+  \item \texttt{INFORM\_CONSTRAINT} $\rightarrow$ \texttt{REQUEST} (6)
+  \item \texttt{REQUEST} $\rightarrow$ \texttt{CORRECT\_CLARIFY} (4)
+\end{itemize}
+
+\textbf{Per-original-label agreement:}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Original Label} & \textbf{Agreement Rate} \\
+\midrule
+\texttt{REQUEST} & 72.7\% \\
+\texttt{INFORM\_CONSTRAINT} & 69.0\% \\
+\texttt{CONFIRM\_ACCEPT} & 52.6\% \\
+\texttt{CORRECT\_CLARIFY} & 25.0\% \\
+\texttt{SOCIAL} & 95.8\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Reflection Questions}
+\subsection*{(a) What did you learn about the task from doing the annotation?}
+We learned that intent annotation depends strongly on conversational context, not only keywords. Short forms such as ``yes'' and ``thanks'' require prior-turn grounding. Deterministic tie-break rules reduced inconsistency in mixed-intent turns.
+
+\subsection*{(b) What challenges do you expect models to face when learning from your data?}
+Key challenges are mixed-intent turns, informal language variation, context dependence for short responses, and boundary overlap between \texttt{REQUEST}, \texttt{INFORM\_CONSTRAINT}, and \texttt{CORRECT\_CLARIFY}. The relatively small count of \texttt{CORRECT\_CLARIFY} also increases learning difficulty.
+
+\subsection*{(c) What surprising things did you observe in the data?}
+We observed high consistency on clearly social turns, lower consistency on correction-heavy turns, and frequent pragmatic shifts where a single utterance both responds to prior context and introduces a new goal.
+
+\subsection*{(d) Which features do you expect to be useful?}
+Useful features likely include lexical action cues (book/find/need/instead/no), confirmation and rejection markers, explicit slot constraints (time/day/location/people), prior-turn context features, and dialogue-level intent transition patterns.
+
+\subsection*{(e) Describe the mental model you used for annotation.}
+We used a decision ladder:
+\begin{enumerate}
+  \item detect correction first,
+  \item then explicit acceptance,
+  \item then actionable request,
+  \item then constraint-provision,
+  \item else social.
+\end{enumerate}
+Ambiguous cases were resolved by tie-break order and documented in notes.
+
+\subsection*{(f) Was anything unclear about the instructions, and how would you improve them?}
+Initial high-level instructions were usable but not fully self-contained for edge cases. The most helpful refinements were explicit decision ordering, explicit tie-break rules, compact examples for mixed intents, and explicit limits on editable spreadsheet fields.
+
+\section{Conclusion}
+The group completed annotation and overlap labeling, then computed agreement on the overlap set. The resulting Krippendorff's Alpha of 0.5997 indicates moderate reliability: strong for some classes (especially social turns) and weaker for correction/request boundaries. The dataset is suitable for baseline model training and error analysis, with clear guidance for future annotation guideline refinement.
+
+\end{document}

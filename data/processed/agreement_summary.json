@@ -1,0 +1,59 @@
+{
+  "initial_rows": 1050,
+  "reannotation_rows": 135,
+  "overlap_rows": 135,
+  "blank_label_count": 0,
+  "percent_agreement": 0.7037037037037037,
+  "krippendorff_alpha_nominal": 0.5996738082882349,
+  "label_counts_original": {
+    "REQUEST": 55,
+    "INFORM_CONSTRAINT": 29,
+    "CONFIRM_ACCEPT": 19,
+    "CORRECT_CLARIFY": 8,
+    "SOCIAL": 24
+  },
+  "label_counts_reannotation": {
+    "REQUEST": 52,
+    "INFORM_CONSTRAINT": 28,
+    "CONFIRM_ACCEPT": 20,
+    "CORRECT_CLARIFY": 10,
+    "SOCIAL": 25
+  },
+  "confusion_matrix": {
+    "REQUEST": {
+      "REQUEST": 40,
+      "INFORM_CONSTRAINT": 3,
+      "CONFIRM_ACCEPT": 8,
+      "CORRECT_CLARIFY": 4,
+      "SOCIAL": 0
+    },
+    "INFORM_CONSTRAINT": {
+      "REQUEST": 6,
+      "INFORM_CONSTRAINT": 20,
+      "CONFIRM_ACCEPT": 1,
+      "CORRECT_CLARIFY": 2,
+      "SOCIAL": 0
+    },
+    "CONFIRM_ACCEPT": {
+      "REQUEST": 3,
+      "INFORM_CONSTRAINT": 2,
+      "CONFIRM_ACCEPT": 10,
+      "CORRECT_CLARIFY": 2,
+      "SOCIAL": 2
+    },
+    "CORRECT_CLARIFY": {
+      "REQUEST": 3,
+      "INFORM_CONSTRAINT": 2,
+      "CONFIRM_ACCEPT": 1,
+      "CORRECT_CLARIFY": 2,
+      "SOCIAL": 0
+    },
+    "SOCIAL": {
+      "REQUEST": 0,
+      "INFORM_CONSTRAINT": 1,
+      "CONFIRM_ACCEPT": 0,
+      "CORRECT_CLARIFY": 0,
+      "SOCIAL": 23
+    }
+  }
+}
