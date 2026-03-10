@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="#fffdf7"/>
+<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2933">Final Gold Label Distribution</text>
+<text x="40" y="64" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#52606d">Frozen dataset size: 1050</text>
+<line x1="170" y1="70" x2="170" y2="430" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="170" y1="430" x2="860" y2="430" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="164" y1="430.0" x2="170" y2="430.0" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="434.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">0</text>
+<line x1="164" y1="357.7" x2="170" y2="357.7" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="361.7" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">86</text>
+<line x1="164" y1="286.2" x2="170" y2="286.2" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="290.2" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">171</text>
+<line x1="164" y1="213.8" x2="170" y2="213.8" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="217.8" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">257</text>
+<line x1="164" y1="142.3" x2="170" y2="142.3" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="146.3" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">342</text>
+<line x1="164" y1="70.0" x2="170" y2="70.0" stroke="#7b8794" stroke-width="1"/>
+<text x="156" y="74.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d">428</text>
+<rect x="188" y="70.0" width="95" height="360.0" fill="#0b6e4f" rx="6"/>
+<text x="235.5" y="60.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">428</text>
+<text x="235.5" y="454" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">REQUEST</text>
+<text x="235.5" y="472" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52606d">40.8%</text>
+<rect x="318" y="256.7" width="95" height="173.3" fill="#dd6b20" rx="6"/>
+<text x="365.5" y="246.7" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">206</text>
+<text x="365.5" y="454" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">INFORM_CONSTRAINT</text>
+<text x="365.5" y="472" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52606d">19.6%</text>
+<rect x="448" y="315.6" width="95" height="114.4" fill="#1f77b4" rx="6"/>
+<text x="495.5" y="305.6" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">136</text>
+<text x="495.5" y="454" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">CONFIRM_ACCEPT</text>
+<text x="495.5" y="472" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52606d">13.0%</text>
+<rect x="578" y="359.3" width="95" height="70.7" fill="#8b1e3f" rx="6"/>
+<text x="625.5" y="349.3" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">84</text>
+<text x="625.5" y="454" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">CORRECT_CLARIFY</text>
+<text x="625.5" y="472" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52606d">8.0%</text>
+<rect x="708" y="265.1" width="95" height="164.9" fill="#6b46c1" rx="6"/>
+<text x="755.5" y="255.1" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">196</text>
+<text x="755.5" y="454" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#102a43">SOCIAL</text>
+<text x="755.5" y="472" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52606d">18.7%</text>
+</svg>
