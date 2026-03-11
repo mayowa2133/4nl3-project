@@ -12,6 +12,46 @@ Build a manually annotated dataset and baseline workflow for classifying the
 main intent of a user turn in task-oriented dialogue using one-turn system
 context.
 
+## Competition Launch Handoff (Start Here)
+
+If you are working on the Competition Launch deliverables, start with:
+
+1. `docs/competition_launch/README.md`
+2. `docs/competition_launch/data_preparation.md`
+3. `data/processed/final_gold_labels.csv`
+
+### Person B: Baselines and Splits
+
+Use `data/processed/final_gold_labels.csv` as the only source of truth for:
+
+1. train/validation/test splits
+2. baseline training
+3. validation and test labels
+4. any published metric tables
+
+Do not use `annotations_labeled_long.csv` or any pre-freeze annotation file for
+modeling or reporting.
+
+### Person C: Codabench and Slide
+
+Use these files directly:
+
+1. `docs/competition_launch/data_preparation.md` for Step 2 write-up text
+2. `data/processed/final_label_distribution.csv` for counts and percentages
+3. `docs/competition_launch/final_label_distribution.png` for the slide chart
+4. `data/processed/adjudication_log.csv` for disagreement-case reference
+
+### Regenerate Person A Artifacts
+
+Run:
+
+```bash
+python3 scripts/freeze_gold_labels.py
+```
+
+This rebuilds the frozen gold labels, adjudication log, distribution table, and
+chart assets.
+
 ## Current Status (February 17, 2026)
 
 1. Phase 1 setup is complete.
