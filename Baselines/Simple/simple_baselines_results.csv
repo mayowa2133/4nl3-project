@@ -1,0 +1,3 @@
+baseline,description,val_accuracy,val_f1_macro
+random_uniform,Predict uniform random label (1/5 chance per class),0.22330097087378642,0.207252709625591
+majority,Always predict train majority: REQUEST,0.3883495145631068,0.1118881118881119
