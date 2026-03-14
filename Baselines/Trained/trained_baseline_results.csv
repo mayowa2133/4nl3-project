@@ -1,0 +1,2 @@
+baseline,description,val_accuracy,val_f1_macro
+tfidf_lr,"TF-IDF (1-3grams, 5000 features) on system+user text + Logistic Regression",0.6699029126213593,0.4708004314994606
