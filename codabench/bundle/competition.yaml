@@ -1,0 +1,34 @@
+title: Turn-Level User Intent Classification in Task-Oriented Dialogue
+description: >
+  Classify the primary communicative intent of a user turn in a task-oriented
+  dialogue given the utterance and one turn of system context. Five-way
+  classification over MultiWOZ 2.2 turns, manually adjudicated gold labels.
+image: logo.png
+terms: >
+  By participating you agree to use the data only for research purposes and not
+  to redistribute the dataset.
+
+phases:
+  1:
+    phasenumber: 1
+    label: Evaluation
+    start_date: 2025-03-16
+    max_submissions_per_day: 5
+    max_submissions: 100
+    is_scoring_only: true
+    scoring_program: scoring_program.zip
+    reference_data: reference_data.zip
+
+leaderboard:
+  - label: Results
+    rank_var: macro_f1
+    rank_desc: true
+    columns:
+      - label: Macro F1
+        source: scoring
+        var: macro_f1
+        rank: true
+      - label: Accuracy
+        source: scoring
+        var: accuracy
+        rank: false
