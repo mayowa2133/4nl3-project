@@ -1,0 +1,106 @@
+instance_id,dialogue_id,turn_id,system_context,user_utterance,label
+mw22_PMUL1440.json_8,PMUL1440.json,8,"OK, what is the name of the attraction?",it's called gonville and caius college.,CORRECT_CLARIFY
+mw22_PMUL4668.json_8,PMUL4668.json,8,In what area would you like the museum to be?,"In the west please, I am open to suggestions just let me know what the postcode, entrance fee a number are.",REQUEST
+mw22_PMUL2211.json_12,PMUL2211.json,12,"Yes, I am happy to book you at Dojo. What time would you like to book and for how many people in the party?","Whenever is fine, just for me.",REQUEST
+mw22_PMUL1302.json_2,PMUL1302.json,2,Okay we have a lot of trains departing on Saturday. Where are you headed and where are you departing from?,I am going to Cambridge and leaving from Stevenage.,INFORM_CONSTRAINT
+mw22_MUL1307.json_14,MUL1307.json,14,I'm sorry there are no matches for what you are looking for. Would you like something else?,"Yes, how about a restaurant that serves Indian food?",CORRECT_CLARIFY
+mw22_SNG01776.json_10,SNG01776.json,10,"Booking was successful for Thursday at 1200hrs , table for 7 at Grafton Hotel restaurant. Your Reference number is KQKTCX5Y . Is there anything else I can help you with?","Nope, that should be everything. Thank you so much for all of your help.",SOCIAL
+mw22_MUL1510.json_12,MUL1510.json,12,The price of that is 8.08 pounds.,Ok thank you for the information that's all I needed today.,SOCIAL
+mw22_PMUL0801.json_4,PMUL0801.json,4,I have several. Is there an area of town you prefer?,"No it doesn't matter, what do you recommend?",REQUEST
+mw22_SNG0712.json_4,SNG0712.json,4,"I have two in the centre, the Backstreet bistro and The Slug and Lettuce. Would you like for me to make you a reservation?",Could you give me the address and phone number for the Slug and Lettuce please.,REQUEST
+mw22_MUL0200.json_4,MUL0200.json,4,"I'm sorry, but there are no restaurants that match your criteria. Would you care to broaden your search a bit?",What about Italian food?,INFORM_CONSTRAINT
+mw22_SSNG0314.json_4,SSNG0314.json,4,"The Warkworth house is a guesthouse, not a hotel. Is that okay?",Yeah that's okay. Please book it for 2 people and 3 nights starting Sunday.,CONFIRM_ACCEPT
+mw22_PMUL4078.json_10,PMUL4078.json,10,Do you need me to look into anything else for you?,"No, that's all I need help with. Thanks, bye!",SOCIAL
+mw22_MUL0788.json_14,MUL0788.json,14,"I'm sorry, there aren't any hotels that match your criteria. Would any other area, price, or internet availability be acceptable?",How about the one that is in the type of guesthouse?,CORRECT_CLARIFY
+mw22_PMUL1590.json_10,PMUL1590.json,10,I got your room booked at the Carolina Bed and Breakfast. Your reference is FYLDIZUF . Is there anything else I can help you with today?,I need a room for the same group of people for 1 night on the same day. And I need the reference number then too please,REQUEST
+mw22_MUL0914.json_10,MUL0914.json,10,"Yes, loch fyne is in town centre and serves seafood. It is in the expensive price range. Would you like to reserve a table?","No thank you. Can I have the phone number, postcode and address though?",REQUEST
+mw22_SNG01578.json_2,SNG01578.json,2,What time do you want to be picked up at the lensfield hotel?,I would like for the taxi to arrive by 06:15.,INFORM_CONSTRAINT
+mw22_MUL1465.json_10,MUL1465.json,10,That train leaves Cambridge at 14:34.,"Thank you, I appreciate it. I also need some help finding an African restaurant.",REQUEST
+mw22_MUL1083.json_10,MUL1083.json,10,"The cherry hinton water play park is at cherry hinton hall, cherry hinton road, cb18dw, it is free to enter.Phone number 01223446100. Can I help you with anything else?",Yes I also need a taxi to commute between the two.,REQUEST
+mw22_MUL1260.json_12,MUL1260.json,12,"It is in the same area, and does have wifi. When would you like your stay to begin?",I would like my stay to begin on Tuesday.,INFORM_CONSTRAINT
+mw22_PMUL3757.json_10,PMUL3757.json,10,The phone number is 01223356354.,I need the address and postcode. I need a taxi to pick me up at the hotel by 19:00. I need the contact number and car type please.,REQUEST
+mw22_WOZ20511.json_2,WOZ20511.json,2,Would you be interested in a wonderful Indian restaurant called Tandoori Palace?,"No actually, can you suggest me some kosher places?",CORRECT_CLARIFY
+mw22_MUL0263.json_12,MUL0263.json,12,"Yes, of course. How many tickets would you like booked?",I need 6 tickets.,REQUEST
+mw22_PMUL0966.json_2,PMUL0966.json,2,There are 70 trains traveling to Ely from Cambridge between Friday and Wednesday. What day do you want to travel?,I would like to leave on Saturday.,INFORM_CONSTRAINT
+mw22_PMUL3054.json_8,PMUL3054.json,8,Okay how about the TR4078 it arrives by 15:07.,Perfect. I will need tickets for 6 people. Please provide the reference number.,REQUEST
+mw22_PMUL3790.json_2,PMUL3790.json,2,what about the bridge guest house,"Okay, does it have 4 stars and does it include free wifi?",INFORM_CONSTRAINT
+mw22_PMUL3944.json_12,PMUL3944.json,12,"Absolutely. It's an expensive 4 star hotel that offers free wifi and free parking. The hotel is located at kingfisher way, hinchinbrook business park, huntingdon. Can I book it for you?","Can you book it for me. From Thursday, for 2 nights and 3 people.",REQUEST
+mw22_PMUL1687.json_12,PMUL1687.json,12,The travel time of that train is 79 minutes.,thanks for your help you have been great!,SOCIAL
+mw22_SNG02185.json_12,SNG02185.json,12,Do you need any further assistance?,"No thank you, I appreciate all your help!",SOCIAL
+mw22_PMUL1715.json_2,PMUL1715.json,2,"We have many, do you want a specific side of town?",I would like it to be in the north with a 4 star rating and free parking please.,INFORM_CONSTRAINT
+mw22_SNG0997.json_4,SNG0997.json,4,The Aylesbray Lodge Guesthouse and The Bridge Guesthouse are in the south area with a moderate price range and both have free wifi. Can I book one of these for you?,"Yes, please. Either one sounds perfect!",CONFIRM_ACCEPT
+mw22_SNG1244.json_4,SNG1244.json,4,There are 13 colleges in centre. Are you look for free entrance or paid?,"Please tell me one of the free ones, please.",REQUEST
+mw22_PMUL1359.json_10,PMUL1359.json,10,What about a museum? The regency gallery is amazing and it's free!,Sounds good. Can I get the phone number and postcode?,REQUEST
+mw22_PMUL1136.json_4,PMUL1136.json,4,i suggest TR3947. can we book?,"Can you give me the price, travel time and departure time first?",REQUEST
+mw22_SNG01939.json_2,SNG01939.json,2,Ok where is your departure site?,I'm leaving the la margherita.,INFORM_CONSTRAINT
+mw22_MUL0648.json_2,MUL0648.json,2,There are 200 trains coming to Cambridge on Sunday. Is there a particular time or departure location you're interested in?,I want to depart from london kings cross after 13:30.,INFORM_CONSTRAINT
+mw22_PMUL2663.json_2,PMUL2663.json,2,The museum is located on Sidgwick Avenue in the west and it is free to get in. Do you need any other information?,Yes I need the phone number.,REQUEST
+mw22_MUL0054.json_4,MUL0054.json,4,Yes! The Acorn Guest House is very popular. Would you like more information on that hotel?,"Could i get the postcode, please?",REQUEST
+mw22_PMUL0527.json_4,PMUL0527.json,4,There are 10 results. What time would you like to leave or arrive by?,I would like to leave after 12:30 please.,REQUEST
+mw22_MUL1372.json_8,MUL1372.json,8,Yes they do.,What is the star of the hotel?,REQUEST
+mw22_MUL1400.json_18,MUL1400.json,18,Your welcome. Is there anything else I can do for you today?,"Thats all thank you for your help,goodbye",SOCIAL
+mw22_PMUL4110.json_8,PMUL4110.json,8,"Thanks for the info, I found train ID TR8286 which departs at 6:48 and arrives by 7:38. Tickets cost 16.50 pounds. Would you like a reservation?","Yeah, just get 1 ticket please and tell me the reference number",CONFIRM_ACCEPT
+mw22_MUL0044.json_10,MUL0044.json,10,"Before we make your restaurant reservation, let's take care of the hotel. What day are you arriving, how many nights are you staying, and how many people?",It's just me. I am arriving Sunday and staying one night. Can you provide the phone number for the restaurant?,REQUEST
+mw22_SNG0947.json_2,SNG0947.json,2,I have 17 hotels in the moderate range that offer internet access. Do you have a particular part of town you wish to stay in?,I prefer the eastern part of town and something that is 4-star rated.,INFORM_CONSTRAINT
+mw22_PMUL1329.json_8,PMUL1329.json,8,Okay. TR6572 departs at 05:29. Would you like me to book that for you?,What is the price?,REQUEST
+mw22_PMUL1040.json_2,PMUL1040.json,2,The Place is a nightclub in the South. Would you like their phone number or address?,"Yes. I want the address, postcode and phone number.",CONFIRM_ACCEPT
+mw22_MUL2470.json_4,MUL2470.json,4,"Well, we've got the all saints church in the centre and it's free to visit.",A free church would cover a lot of my local historical interests. What is their phone number?,REQUEST
+mw22_PMUL1567.json_6,PMUL1567.json,6,"Yes, there is the City Centre North B and B and the Worth House.",Great. Please book it for 8 people and 4 nights starting from Monday.,CONFIRM_ACCEPT
+mw22_SNG0082.json_4,SNG0082.json,4,"Alright, and what is your destination?",I am headed to curry prince.,CORRECT_CLARIFY
+mw22_PMUL0059.json_12,PMUL0059.json,12,"Booking was successful, and it will be a red Toyota. Contact number is 07791600015. Is there anything else I can assist you with?",Thank you! That's all I needed help with today. Goodbye!,SOCIAL
+mw22_PMUL1576.json_10,PMUL1576.json,10,arrival time is 11:06 and travel time is 105 minutes,I'm also looking for a particular hotel. Its name is called cityroomz.,REQUEST
+mw22_MUL0418.json_4,MUL0418.json,4,"Yes, TR4669 goes from peterborough to cambridge on Thursday. Would you like to book tickets on this train?",Yes I would like tickets for 2 people and the reference number please.,CONFIRM_ACCEPT
+mw22_MUL0047.json_4,MUL0047.json,4,I'm sorry I am still not finding anything. is there another type of food you would be interested in looking for?,"Well, can I get some african food instead?",CORRECT_CLARIFY
+mw22_PMUL2855.json_14,PMUL2855.json,14,"I recommend, the gallery at twelve a high street, their postal is cb15dh, any further questions?",I need also a taxi to leave the hotel by 2:30,INFORM_CONSTRAINT
+mw22_PMUL3515.json_6,PMUL3515.json,6,"Booking was successful, the total fee is 102.4 GBP payable at the station . Reference number is : AIM1QZ4C .",Thank you! I also am looking for a place to eat at in the west area. I would prefer a nice expensive one.,CONFIRM_ACCEPT
+mw22_PMUL3204.json_16,PMUL3204.json,16,Thanks for using this service! have a nice day.,"ok thanks, byeeee",SOCIAL
+mw22_PMUL3677.json_4,PMUL3677.json,4,They do serve international food.,No thank you that will be all,SOCIAL
+mw22_PMUL0906.json_8,PMUL0906.json,8,4.10 pounds. Do you need anything more?,Also looking for a restaurant by the name of Midsummer House. I need a reservation for 7 people at 10:15 on Monday.,REQUEST
+mw22_SNG1245.json_6,SNG1245.json,6,"I have booked the table for Sunday, the reference number is 1XGV4VGP . Is there anything else I can help you with today?",That's all I needed help with. Thanks a lot!,SOCIAL
+mw22_MUL2437.json_6,MUL2437.json,6,Cafe Jello Gallery is in the west. The address is 13 magdalene street.,"Ok, just gathering information for now, thank you.",SOCIAL
+mw22_WOZ20361.json_8,WOZ20361.json,8,Their phone number is 01223 577786. Do you need their address also?,"no, thank you. Goodbye.",SOCIAL
+mw22_PMUL4535.json_6,PMUL4535.json,6,"a and b guest house has rooms available and is near the museum, would you like me to book rooms for you?","Um, actually I think I'd like to be in the east. I also need parking.",CORRECT_CLARIFY
+mw22_SNG0302.json_4,SNG0302.json,4,I have a train that departs Cambridge on Tuesday at 12:34 and will get you to Peterborough at 13:24 exactly. Would you like me to book that seat for you?,"Yes, please! I need 6 seats.",CONFIRM_ACCEPT
+mw22_MUL1112.json_2,MUL1112.json,2,OK. There are four different boats to choose from. What area of town were you thinking?,It doesn't really matter. Can you recommend one?,REQUEST
+mw22_MUL0526.json_8,MUL0526.json,8,"There are 404 trains that day, what destinations do you need?","I am looking to depart cambridge, head to ely, and arrive by 18:30",CONFIRM_ACCEPT
+mw22_PMUL0493.json_6,PMUL0493.json,6,It is. Reference number is : W7KCVTHJ . Anything else?,"I am also looking for a place to dine, in the same area as the hotel.",REQUEST
+mw22_PMUL0293.json_4,PMUL0293.json,4,You are all set! The reference number is 8KYSNB3T . Do you need anything else?,I am also looking for a place to eat. It should serve bistro food and be expensive.,REQUEST
+mw22_WOZ20570.json_2,WOZ20570.json,2,I'm showing three restaurants that fit that description. Are you interested in a particular area or price range?,"No, any price range is fine. Can you recommend one of the restaurants?",REQUEST
+mw22_WOZ20099.json_2,WOZ20099.json,2,"I'm sorry, there are no Tuscan restaurants in the expensive price range. Would you like to try something else?",How about korean food?,CORRECT_CLARIFY
+mw22_PMUL0396.json_12,PMUL0396.json,12,"Ok, I was able to change the booking. Your new reference number is: FLG9ZMC2 . Can I help with anything else?",i am also looking for a place to stay in the centre that offers free wifi.,REQUEST
+mw22_SNG1077.json_4,SNG1077.json,4,"I'd recommend the Cambridge Arts Theatre, myself.","That sounds good. Can I get the address and postcode, please?",REQUEST
+mw22_MUL1076.json_22,MUL1076.json,22,Great! I will give you some brochures for you.,Thank You. I think that's all I need today.,SOCIAL
+mw22_PMUL2443.json_10,PMUL2443.json,10,Okay. I booked you a red skoda and the driver can be reached at 07744304667. Is there anything else I can help you with?,No thank you. That is all that I needed.,SOCIAL
+mw22_PMUL0043.json_26,PMUL0043.json,26,The university arms hotel sounds like exactly what you're looking for. Would you like me to book it for you?,No I just need their phone number and address.,REQUEST
+mw22_PMUL0665.json_10,PMUL0665.json,10,What day do you need the train on?,I'll be leaving on Monday.,INFORM_CONSTRAINT
+mw22_PMUL1663.json_4,PMUL1663.json,4,"sure, what would you like to know?","I need the price range, area, and star of the hotel.",REQUEST
+mw22_MUL0007.json_2,MUL0007.json,2,What specific time do you want to leave?,Never mind. I'm looking for a guesthouse to stay at. It must be in the north and 4 stars.,CORRECT_CLARIFY
+mw22_PMUL1447.json_8,PMUL1447.json,8,Train TR4329 has a travel time of 47 minutes with a cost of 9.80 pounds. I'd be happy to book that for you.,"That's okay, can you tell me about parks in town?",REQUEST
+mw22_SNG0925.json_6,SNG0925.json,6,The hamilton lodge is in the north area and has parking and internet. Would you like me to book that for you?,"Sure, book it for 1 person and 2 nights, starting from Wednesday.",CONFIRM_ACCEPT
+mw22_PMUL0226.json_6,PMUL0226.json,6,I have made that reservation and your reference number is 0X0N3WV0 .,Thanks so much. Can you help me find a place to stay in that area as well?,REQUEST
+mw22_PMUL2871.json_6,PMUL2871.json,6,What day would you like me book and how many days will you be staying?,I need it for 7 people for 3 nights starting on friday please.,INFORM_CONSTRAINT
+mw22_PMUL4656.json_8,PMUL4656.json,8,"okay, would you like me to book that for you","no, just their phone number and address please",CORRECT_CLARIFY
+mw22_PMUL2358.json_2,PMUL2358.json,2,Yes we have 9 Italian restaurants in that area. Do yo have a price range you'd like to stick to?,No price range but can you check in the centre of town?,INFORM_CONSTRAINT
+mw22_SNG02095.json_2,SNG02095.json,2,I can help with that! What time do you need to leave or arrive by?,I need to leave after 17:00.,INFORM_CONSTRAINT
+mw22_PMUL0400.json_16,PMUL0400.json,16,"Yes, I've booked a taxi for you, a black honda will be waiting to pick you up before 11:30, call it at 07651690820 if you have any further questions.",Thanks that would be it for today,SOCIAL
+mw22_MUL1484.json_4,MUL1484.json,4,"I'm sorry, there are no spots available on that day and time. Is there another time or day you would like perhaps?",Well I'm also looking for a train. Can you coordinate a time with a departure from cambride on sunday?,REQUEST
+mw22_MUL1319.json_4,MUL1319.json,4,Can I help you with anything else?,"No, thank you!",SOCIAL
+mw22_PMUL4713.json_18,PMUL4713.json,18,Your booking was successful. The reference number is PX6XVGSJ . Can I help with anything else today?,"Thank you, I would like to reserve a taxi around 22:45, Who can I contact and what type of car can I expect?",REQUEST
+mw22_MUL2221.json_14,MUL2221.json,14,"Booking was successful, you reference number is DEMBOPOR, can I assist with anything else?",No that is everything I need today. Thank you.,SOCIAL
+mw22_PMUL2579.json_2,PMUL2579.json,2,"There are a number of attractions on the west side. Are you interested in colleges, entertainment or museums?","I don't really have a preference, so which one do you think is best?",REQUEST
+mw22_MUL0061.json_6,MUL0061.json,6,Yes I found five restaurants in the west four in the expensive range and one in the moderate price range.,"Can you give me the address, price range, and phone number of the best one?",REQUEST
+mw22_PMUL4654.json_4,PMUL4654.json,4,"Alright, the booking was successful, your reference number is: LT8DPU71 . Is there anything else I can do for you today?",Thanks for your help. Have a good day!,SOCIAL
+mw22_SNG0841.json_6,SNG0841.json,6,"Great, you're all set. Your reference number is WK3E72PX",Thank you. Good-bye.,SOCIAL
+mw22_PMUL1838.json_8,PMUL1838.json,8,"Okay, the booking was successful. The reference number is FGOM35JV .",Thanks. I am also looking for a train to Broxbourne from Cambridge.,REQUEST
+mw22_MUL2560.json_20,MUL2560.json,20,There's Christ's College on Saint Andrew's Street. It's in the centre and free. Are you interested?,Yes. Can I get the postcode?,REQUEST
+mw22_SNG01277.json_4,SNG01277.json,4,How about TR5042 that arrives at 05:19?,"I'd like to arrive by 10:45, do you have something close to that time?",CORRECT_CLARIFY
+mw22_PMUL4607.json_16,PMUL4607.json,16,I was able to book a black bmw phone number is 07591473862,Great! Thank you for your help.,SOCIAL
+mw22_WOZ20051.json_4,WOZ20051.json,4,sala thong serves thai food and is located in the west part of town. Would you like more information for them?,"Yes, the address, phone number, and their price range please.",CONFIRM_ACCEPT
+mw22_SNG0131.json_2,SNG0131.json,2,"Of course, the phone number is 01223358966, the address is Parkside, Cambridge, postcode CB11JG. Is everything alright?",That's it. Thank you!,SOCIAL
+mw22_MUL1099.json_8,MUL1099.json,8,I'm happy to help. Where in the city would you like your hotel to be located?,I'd like a room in the north please,REQUEST
+mw22_MUL1306.json_6,MUL1306.json,6,Sorry booking was unsuccessful. Would you like to try a different time?,How about at 13:45?,INFORM_CONSTRAINT
+mw22_MUL1231.json_10,MUL1231.json,10,You're booked and the reference number is BQT142V9 . The table will be reserved for 15 minutes. Is there anything else you need?,Thank you and Goodbye,SOCIAL
+mw22_PMUL3288.json_12,PMUL3288.json,12,How many will be at your table?,It will just be a table for one. Go ahead and book it,CONFIRM_ACCEPT
+mw22_PMUL0933.json_2,PMUL0933.json,2,"There are 404 trains running on Wednesday, what point of departure and point of arrival are you interested in?",I need to depart from ely and arrive by 16:30.,INFORM_CONSTRAINT
+mw22_PMUL3767.json_12,PMUL3767.json,12,How many nights would you like?,"Please book for 2 nights, for 1 person starting on Monday.",CONFIRM_ACCEPT
+mw22_MUL2588.json_12,MUL2588.json,12,Christ's College postcode is cb23bu and address is saint andrew's street,"Thank you. Also, what is the entrance fee if any?",REQUEST
