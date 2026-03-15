@@ -8,13 +8,23 @@ terms: >
   By participating you agree to use the data only for research purposes and not
   to redistribute the dataset.
 
+pages:
+  - title: Overview
+    file: pages/overview.md
+  - title: Data
+    file: pages/data.md
+  - title: Evaluation
+    file: pages/evaluation.md
+  - title: Terms
+    file: pages/terms.md
+
 phases:
   1:
     phasenumber: 1
-    label: Evaluation
-    start_date: 2025-03-16
-    max_submissions_per_day: 5
-    max_submissions: 100
+    label: Development
+    start_date: 2026-03-16
+    max_submissions_per_day: 10
+    max_submissions: 150
     is_scoring_only: true
     scoring_program: scoring_program.zip
     reference_data: reference_data.zip
