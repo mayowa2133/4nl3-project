@@ -9,11 +9,21 @@ split of MultiWOZ 2.2 to avoid overlap with standard evaluation sets.
 
 ## What Is a Data Point?
 
-Each data point consists of three fields:
+Each data point consists of the following fields:
 
+- **instance_id** — unique identifier for the instance
+- **dialogue_id** — unique identifier for the source dialogue
+- **turn_id** — turn index within the dialogue
 - **system_context** — the immediately preceding system utterance
 - **user_utterance** — the user's response (≤40 tokens)
 - **label** — the gold-standard intent label
+
+Example:
+
+```
+instance_id,dialogue_id,turn_id,system_context,user_utterance,label
+mw22_MUL0592.json_12,MUL0592.json,12,"Indeed I can book that for 4 people. Your booking was successful, the total fee is 40.4 GBP payable at the station. Reference number is : 2I1YOWD4","Great that's all that I need, thank you!",SOCIAL
+```
 
 ## Labeled Examples
 

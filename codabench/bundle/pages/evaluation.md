@@ -20,6 +20,7 @@ The dataset is provided as CSV files with the following columns:
 
 | Column | Description |
 |---|---|
+| `instance_id` | Unique identifier for the instance |
 | `dialogue_id` | Unique identifier for the source dialogue |
 | `turn_id` | Turn index within the dialogue |
 | `system_context` | The preceding system utterance |
@@ -29,21 +30,21 @@ The dataset is provided as CSV files with the following columns:
 Example row from `train.csv`:
 
 ```
-dialogue_id,turn_id,system_context,user_utterance,label
-MUL0001.json,2,"I can help you find a restaurant. What area are you looking in?","I am looking for something in the centre.",INFORM_CONSTRAINT
+instance_id,dialogue_id,turn_id,system_context,user_utterance,label
+mw22_MUL0592.json_12,MUL0592.json,12,"Indeed I can book that for 4 people. Your booking was successful, the total fee is 40.4 GBP payable at the station. Reference number is : 2I1YOWD4","Great that's all that I need, thank you!",SOCIAL
 ```
 
 ## Starting Kit
 
 The starting kit is available for download under the Datasets tab. It contains:
 
-- `train.csv` — 841 labeled training instances
-- `val.csv` — 106 labeled validation instances
-- `test_utterances.csv` - test utterances without labels to test the model
-- `sample_predictions.txt` — example submission file
-- `README.txt` — submission instructions
+- `data/train.csv` — 841 labeled training instances
+- `data/val.csv` — 106 labeled validation instances
+- `data/test.csv` — 106 unlabeled test instances used for evaluation
+- `baseline.py` — baseline models to test models against
 
-Train on `train.csv`, tune on `val.csv`, and generate predictions on `test_utterances.csv` to submit.
+Train on `data/train.csv`, tune on `data/val.csv`, and generate predictions on
+`data/test.csv` to submit.
 
 ## Submission Format
 
