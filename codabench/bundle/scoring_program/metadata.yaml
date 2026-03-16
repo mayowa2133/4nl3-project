@@ -1,1 +1,1 @@
-command: python3 score.py $input $output
+command: python3 score.py

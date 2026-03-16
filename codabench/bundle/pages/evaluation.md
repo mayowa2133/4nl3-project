@@ -38,9 +38,9 @@ mw22_MUL0592.json_12,MUL0592.json,12,"Indeed I can book that for 4 people. Your 
 
 The starting kit is available for download under the Datasets tab. It contains:
 
-- `data/train.csv` — 841 labeled training instances
-- `data/val.csv` — 106 labeled validation instances
-- `data/test.csv` — 106 unlabeled test instances used for evaluation
+- `data/train.csv` — 840 labeled training instances
+- `data/val.csv` — 105 labeled validation instances
+- `data/test.csv` — 105 unlabeled test instances used for evaluation
 - `baseline.py` — baseline models to test models against
 
 Train on `data/train.csv`, tune on `data/val.csv`, and generate predictions on

@@ -1,58 +1,38 @@
-import os
-import sys
+print("Import libraries.")
+
 import json
-from sklearn.metrics import f1_score, accuracy_score
+import os
+import numpy as np
+from sklearn.metrics import accuracy_score, f1_score
 
-VALID_LABELS = {"REQUEST", "INFORM_CONSTRAINT", "CONFIRM_ACCEPT", "CORRECT_CLARIFY", "SOCIAL"}
+print("Running...")
 
-def load_labels(path):
-    with open(path, "r") as f:
-        labels = [line.strip() for line in f if line.strip()]
-    return labels
+print(os.listdir('/app/input/res/'))
 
-def main():
-    input_dir  = sys.argv[1]
-    output_dir = sys.argv[2]
+# Directories
+reference_dir = os.path.join('/app/input/', 'ref')
+prediction_dir = os.path.join('/app/input/', 'res')
+score_dir = '/app/output/'
 
-    reference_path  = os.path.join(input_dir, "ref", "test_labels.txt")
-    prediction_path = os.path.join(input_dir, "res", "predictions.txt")
+# Load predictions and ground truth as strings
+prediction = np.genfromtxt(os.path.join(prediction_dir, 'predictions.txt'), dtype=str)
+truth = np.genfromtxt(os.path.join(reference_dir, 'test_labels.txt'), dtype=str)
 
-    if not os.path.exists(prediction_path):
-        raise FileNotFoundError(
-            "predictions.txt not found in submission. "
-            "Make sure your submission file is named predictions.txt."
-        )
+# Safety check
+if len(prediction) != len(truth):
+    raise ValueError("Prediction length does not match ground truth length!")
 
-    gold = load_labels(reference_path)
-    pred = load_labels(prediction_path)
+# Compute metrics
+accuracy = accuracy_score(truth, prediction)
+f1 = f1_score(truth, prediction, average='macro')  # Macro F1 for multiclass
 
-    if len(pred) != len(gold):
-        raise ValueError(
-            f"Submission has {len(pred)} lines but expected {len(gold)}. "
-            "Make sure your file has exactly one prediction per line with no header."
-        )
+# Save scores
+scores = {
+    'accuracy': float(accuracy),
+    'f1_macro': float(f1)
+}
 
-    invalid = [p for p in pred if p not in VALID_LABELS]
-    if invalid:
-        raise ValueError(
-            f"Invalid labels found: {set(invalid)}. "
-            f"Valid labels are: {VALID_LABELS}"
-        )
+with open(os.path.join(score_dir, 'scores.json'), 'w') as score_file:
+    json.dump(scores, score_file)
 
-    macro_f1 = f1_score(gold, pred, average="macro", labels=sorted(VALID_LABELS))
-    accuracy = accuracy_score(gold, pred)
-
-    scores = {
-        "macro_f1": round(macro_f1, 4),
-        "accuracy": round(accuracy, 4),
-    }
-
-    os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, "scores.json"), "w") as f:
-        json.dump(scores, f, indent=2)
-
-    print(f"Macro F1 : {scores['macro_f1']}")
-    print(f"Accuracy : {scores['accuracy']}")
-
-if __name__ == "__main__":
-    main()
+print("Scores:", scores)
