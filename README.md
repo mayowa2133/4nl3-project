@@ -12,6 +12,39 @@ Build a manually annotated dataset and baseline workflow for classifying the
 main intent of a user turn in task-oriented dialogue using one-turn system
 context.
 
+## Final Model Ownership (Start Here)
+
+For the final report stage, each teammate should work in only their own model
+file:
+
+1. Mayowa: `models/mayowa_model.py`
+2. Nicholas: `models/nicholas_model.py`
+3. Divij: `models/divij_model.py`
+
+These starter files already use the shared dataset and split scaffold. Keep the
+following rules fixed across all teammate models:
+
+1. Use `data/processed/final_gold_labels.csv` as the only modeling dataset.
+2. Keep the dialogue-level 80/10/10 split with `random_state=42`.
+3. Report validation `accuracy` and `macro F1`.
+4. Do not change another teammate's model file unless the group explicitly
+   agrees.
+
+### Shared Baseline Files
+
+These are shared comparison rows for the final report table and should not be
+used as personal model files:
+
+1. `Baselines/Simple/random+majority.py`
+2. `Baselines/Trained/trained.py`
+
+### Report Files
+
+If you are helping with the final write-up, use these files:
+
+1. Final report template: `Final Project TeX/main.tex`
+2. Existing working draft: `docs/report/final_report.tex`
+
 ## Competition Launch Handoff (Start Here)
 
 If you are working on the Competition Launch deliverables, start with:
