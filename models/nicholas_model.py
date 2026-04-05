@@ -45,8 +45,6 @@ pipeline.fit(train_df["text"], train_df["label_num"])
 # Validate
 val_pred = pipeline.predict(val_df["text"])
 print(f"Model             : {MODEL_NAME}")
-print(f"Train rows        : {len(train_df)}")
-print(f"Val rows          : {len(val_df)}")
 print(f"Validation accuracy : {accuracy_score(val_df['label_num'], val_pred):.4f}")
 print(f"Validation macro F1 : {f1_score(val_df['label_num'], val_pred, average='macro', zero_division=0):.4f}")
 
@@ -54,6 +52,5 @@ print(f"Validation macro F1 : {f1_score(val_df['label_num'], val_pred, average='
 test_pred_nums   = pipeline.predict(test_df["text"])
 test_pred_labels = [INV_LABEL_MAP[n] for n in test_pred_nums]
 
-results_df = test_df[["dialogue_id", "turn_id"]].copy()
-results_df["predicted_label"] = test_pred_labels
-results_df.to_csv("models/results/linear_svc_test_predictions.csv", index=False)
+with open("models/results/linear_svc_predictions.csv", "w") as f:
+    f.write("\n".join(test_pred_labels))
