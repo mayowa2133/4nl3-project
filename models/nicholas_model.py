@@ -1,26 +1,12 @@
-"""
-Owner: Nicholas
-Suggested model family: classical non-trivial model such as linear SVM or a
-strong linear baseline.
-
-Do not change these shared reporting rules:
-- data source: data/processed/final_gold_labels.csv
-- split policy: dialogue-level 80/10/10 with random_state=42
-- reported metrics: validation accuracy and macro F1
-
-This is a runnable starter. It uses a temporary majority-class placeholder so
-the scaffold works before the final model is implemented. Replace only the
-TODO section with the real model code.
-"""
-
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score, f1_score
-from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.svm import LinearSVC
 
-DATA_PATH = "data/processed/final_gold_labels.csv"
+DATA_PATH = "codabench/bundle/starting_kit/data/"
 RANDOM_STATE = 42
-MODEL_NAME = "Nicholas Model Placeholder"
-
+MODEL_NAME = "LinearSVC"
 LABEL_MAP = {
     "REQUEST": 0,
     "INFORM_CONSTRAINT": 1,
@@ -28,77 +14,46 @@ LABEL_MAP = {
     "CORRECT_CLARIFY": 3,
     "SOCIAL": 4,
 }
+INV_LABEL_MAP = {v: k for k, v in LABEL_MAP.items()}
 
+# Load splits
+train_df = pd.read_csv(DATA_PATH + "train.csv")
+val_df   = pd.read_csv(DATA_PATH + "val.csv")
+test_df  = pd.read_csv(DATA_PATH + "test.csv")  # no labels
 
-def load_dataset() -> pd.DataFrame:
-    df = pd.read_csv(DATA_PATH)
-    df["label_num"] = df["label"].map(LABEL_MAP)
-    if df["label_num"].isna().any():
-        raise ValueError("Found unknown label values in final_gold_labels.csv")
-    return df
-
-
-def build_dialogue_splits(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    dialogue_ids = df["dialogue_id"].unique()
-    train_ids, temp_ids = train_test_split(
-        dialogue_ids,
-        train_size=0.8,
-        random_state=RANDOM_STATE,
-        shuffle=True,
-    )
-    val_ids, test_ids = train_test_split(
-        temp_ids,
-        train_size=0.5,
-        random_state=RANDOM_STATE,
-        shuffle=True,
+# Build text feature
+def make_text(df):
+    return (
+        "system: " + df["system_context"].fillna("").astype(str)
+        + " user: " + df["user_utterance"].fillna("").astype(str)
     )
 
-    train_df = df[df["dialogue_id"].isin(train_ids)].copy()
-    val_df = df[df["dialogue_id"].isin(val_ids)].copy()
-    test_df = df[df["dialogue_id"].isin(test_ids)].copy()
+train_df["text"] = make_text(train_df)
+val_df["text"]   = make_text(val_df)
+test_df["text"]  = make_text(test_df)
 
-    for part in (train_df, val_df, test_df):
-        part["text"] = (
-            "system: "
-            + part["system_context"].fillna("").astype(str)
-            + " user: "
-            + part["user_utterance"].fillna("").astype(str)
-        )
+train_df["label_num"] = train_df["label"].map(LABEL_MAP)
+val_df["label_num"]   = val_df["label"].map(LABEL_MAP)
 
-    return train_df, val_df, test_df
+# Train
+pipeline = Pipeline([
+    ("tfidf", TfidfVectorizer()),
+    ("clf",   LinearSVC(random_state=RANDOM_STATE)),
+])
+pipeline.fit(train_df["text"], train_df["label_num"])
 
+# Validate
+val_pred = pipeline.predict(val_df["text"])
+print(f"Model             : {MODEL_NAME}")
+print(f"Train rows        : {len(train_df)}")
+print(f"Val rows          : {len(val_df)}")
+print(f"Validation accuracy : {accuracy_score(val_df['label_num'], val_pred):.4f}")
+print(f"Validation macro F1 : {f1_score(val_df['label_num'], val_pred, average='macro', zero_division=0):.4f}")
 
-def run_model(train_df: pd.DataFrame, val_df: pd.DataFrame) -> list[int]:
-    """
-    TODO(Nicholas):
-    Replace this placeholder with your final model.
-    Suggested direction: linear SVM or another strong classical model.
-    Keep the shared split logic and reported metrics unchanged.
-    """
-    majority_label_num = int(train_df["label_num"].mode().iloc[0])
-    return [majority_label_num] * len(val_df)
+# Predict on test and write results
+test_pred_nums   = pipeline.predict(test_df["text"])
+test_pred_labels = [INV_LABEL_MAP[n] for n in test_pred_nums]
 
-
-def main() -> None:
-    df = load_dataset()
-    train_df, val_df, test_df = build_dialogue_splits(df)
-    val_pred = run_model(train_df, val_df)
-
-    val_accuracy = accuracy_score(val_df["label_num"], val_pred)
-    val_macro_f1 = f1_score(
-        val_df["label_num"],
-        val_pred,
-        average="macro",
-        zero_division=0,
-    )
-
-    print(MODEL_NAME)
-    print(f"Train rows: {len(train_df)}")
-    print(f"Val rows: {len(val_df)}")
-    print(f"Test rows: {len(test_df)}")
-    print(f"Validation accuracy: {val_accuracy:.4f}")
-    print(f"Validation macro F1: {val_macro_f1:.4f}")
-
-
-if __name__ == "__main__":
-    main()
+results_df = test_df[["dialogue_id", "turn_id"]].copy()
+results_df["predicted_label"] = test_pred_labels
+results_df.to_csv("models/results/linear_svc_test_predictions.csv", index=False)
