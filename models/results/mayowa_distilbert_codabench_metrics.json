@@ -1,0 +1,26 @@
+{
+  "model_name": "Mayowa DistilBERT (Codabench Split)",
+  "pretrained_model": "distilbert-base-uncased",
+  "device": "mps",
+  "train_rows": 840,
+  "val_rows": 105,
+  "test_rows": 105,
+  "train_path": "codabench/bundle/starting_kit/data/train.csv",
+  "val_path": "codabench/bundle/starting_kit/data/val.csv",
+  "test_eval_path": "codabench/test.csv",
+  "test_submission_path": "codabench/bundle/starting_kit/data/test.csv",
+  "max_length": 128,
+  "batch_size": 16,
+  "epochs": 5,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "best_val_epoch": 5,
+  "validation": {
+    "accuracy": 0.7523809523809524,
+    "macro_f1": 0.7108733518372073
+  },
+  "test": {
+    "accuracy": 0.7333333333333333,
+    "macro_f1": 0.6449212960928106
+  }
+}
