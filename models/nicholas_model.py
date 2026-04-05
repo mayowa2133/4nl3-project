@@ -52,5 +52,5 @@ print(f"Validation macro F1 : {f1_score(val_df['label_num'], val_pred, average='
 test_pred_nums   = pipeline.predict(test_df["text"])
 test_pred_labels = [INV_LABEL_MAP[n] for n in test_pred_nums]
 
-with open("models/results/linear_svc_predictions.csv", "w") as f:
+with open("models/results/linear_svc_predictions.txt", "w") as f:
     f.write("\n".join(test_pred_labels))
