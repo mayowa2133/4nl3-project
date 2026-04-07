@@ -13,13 +13,20 @@ the scaffold works before the final model is implemented. Replace only the
 TODO section with the real model code.
 """
 
+from pathlib import Path
 import pandas as pd
+from scipy.sparse import hstack
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score, f1_score
-from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import Normalizer
+from sklearn.svm import LinearSVC
 
-DATA_PATH = "data/processed/final_gold_labels.csv"
 RANDOM_STATE = 42
-MODEL_NAME = "Divij Model Placeholder"
+MODEL_NAME = "Divij Tuned TF-IDF + LinearSVC"
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "codabench" / "bundle" / "starting_kit" / "data"
+DATA_PATH = "codabench/bundle/starting_kit/data/"
 
 LABEL_MAP = {
     "REQUEST": 0,
@@ -28,34 +35,13 @@ LABEL_MAP = {
     "CORRECT_CLARIFY": 3,
     "SOCIAL": 4,
 }
+INV_LABEL_MAP = {v: k for k, v in LABEL_MAP.items()}
 
 
-def load_dataset() -> pd.DataFrame:
-    df = pd.read_csv(DATA_PATH)
-    df["label_num"] = df["label"].map(LABEL_MAP)
-    if df["label_num"].isna().any():
-        raise ValueError("Found unknown label values in final_gold_labels.csv")
-    return df
-
-
-def build_dialogue_splits(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    dialogue_ids = df["dialogue_id"].unique()
-    train_ids, temp_ids = train_test_split(
-        dialogue_ids,
-        train_size=0.8,
-        random_state=RANDOM_STATE,
-        shuffle=True,
-    )
-    val_ids, test_ids = train_test_split(
-        temp_ids,
-        train_size=0.5,
-        random_state=RANDOM_STATE,
-        shuffle=True,
-    )
-
-    train_df = df[df["dialogue_id"].isin(train_ids)].copy()
-    val_df = df[df["dialogue_id"].isin(val_ids)].copy()
-    test_df = df[df["dialogue_id"].isin(test_ids)].copy()
+def load_splits():
+    train_df = pd.read_csv(DATA_PATH + "train.csv")
+    val_df = pd.read_csv(DATA_PATH + "val.csv")
+    test_df = pd.read_csv(DATA_PATH + "test.csv")
 
     for part in (train_df, val_df, test_df):
         part["text"] = (
@@ -65,38 +51,75 @@ def build_dialogue_splits(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame,
             + part["user_utterance"].fillna("").astype(str)
         )
 
+    train_df["label_num"] = train_df["label"].map(LABEL_MAP)
+    val_df["label_num"] = val_df["label"].map(LABEL_MAP)
+
     return train_df, val_df, test_df
 
-
-def run_model(train_df: pd.DataFrame, val_df: pd.DataFrame) -> list[int]:
-    """
-    TODO(Divij):
-    Replace this placeholder with your final model.
-    Suggested direction: tuned TF-IDF + logistic regression, a shallow neural
-    model, or another controlled improvement over the trained baseline.
-    Keep the shared split logic and reported metrics unchanged.
-    """
-    majority_label_num = int(train_df["label_num"].mode().iloc[0])
-    return [majority_label_num] * len(val_df)
-
-
-def main() -> None:
-    df = load_dataset()
-    train_df, val_df, test_df = build_dialogue_splits(df)
-    val_pred = run_model(train_df, val_df)
-
-    val_accuracy = accuracy_score(val_df["label_num"], val_pred)
-    val_macro_f1 = f1_score(
-        val_df["label_num"],
-        val_pred,
-        average="macro",
-        zero_division=0,
+def run_model(train_df: pd.DataFrame, val_df: pd.DataFrame, test_df: pd.DataFrame):
+    word_vectorizer = TfidfVectorizer(
+        lowercase=True,
+        strip_accents="unicode",
+        sublinear_tf=True,
+        ngram_range=(1, 3),
+        min_df=2,
+        max_df=0.98,
+        max_features=40000,
+        stop_words="english",
     )
 
-    print(MODEL_NAME)
+    char_vectorizer = TfidfVectorizer(
+        lowercase=True,
+        strip_accents="unicode",
+        sublinear_tf=True,
+        analyzer="char_wb",
+        ngram_range=(3, 5),
+        min_df=2,
+        max_features=30000,
+    )
+
+    X_train_word = word_vectorizer.fit_transform(train_df["text"])
+    X_val_word = word_vectorizer.transform(val_df["text"])
+    X_test_word = word_vectorizer.transform(test_df["text"])
+
+    X_train_char = char_vectorizer.fit_transform(train_df["text"])
+    X_val_char = char_vectorizer.transform(val_df["text"])
+    X_test_char = char_vectorizer.transform(test_df["text"])
+
+    X_train = hstack([X_train_word, X_train_char], format="csr")
+    X_val = hstack([X_val_word, X_val_char], format="csr")
+    X_test = hstack([X_test_word, X_test_char], format="csr")
+
+    normalizer = Normalizer(copy=False)
+    X_train = normalizer.fit_transform(X_train)
+    X_val = normalizer.transform(X_val)
+    X_test = normalizer.transform(X_test)
+
+    clf = LinearSVC(C=1.5, class_weight="balanced", random_state=RANDOM_STATE)
+    clf.fit(X_train, train_df["label_num"])
+
+    val_pred = clf.predict(X_val)
+    test_pred = clf.predict(X_test)
+
+    return val_pred, test_pred
+
+
+def main():
+
+    print("Loading from:", DATA_PATH)
+
+    train_df, val_df, test_df = load_splits()
+
     print(f"Train rows: {len(train_df)}")
     print(f"Val rows: {len(val_df)}")
     print(f"Test rows: {len(test_df)}")
+
+    val_pred, test_pred = run_model(train_df, val_df, test_df)
+
+    val_accuracy = accuracy_score(val_df["label_num"], val_pred)
+    val_macro_f1 = f1_score(val_df["label_num"], val_pred, average="macro", zero_division=0)
+
+    print(MODEL_NAME)
     print(f"Validation accuracy: {val_accuracy:.4f}")
     print(f"Validation macro F1: {val_macro_f1:.4f}")
 
